@@ -16,7 +16,7 @@ button.addEventListener('click', ()=>{
    const nomeDaTarefa = input.value;
    const tarefas = document.querySelector('div.tarefas');
 
-   if (nomeDaTarefa === '' || nomeDaTarefa.length===0) {
+   if (nomeDaTarefa === '' || nomeDaTarefa.length === 0) {
       input.classList.add('error');
    } else {
       input.classList.remove('error');
@@ -51,5 +51,4 @@ button.addEventListener('click', ()=>{
       input.value='';
       input.select();
    }
-   
 });
