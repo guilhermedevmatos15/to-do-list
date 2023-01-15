@@ -1,8 +1,8 @@
 @charset "UTF-8";
 
 :root {
-   --cor01: #ed1b1b;
-   --cor02: #ed1b1b;
+   --cor01: #103CE7;
+   --cor02: #64E9FF;
 
    --font-padrao: 'Bebas Neue', cursive;
 }
@@ -11,4 +11,144 @@
    margin: 0px;
    padding: 0px;
    box-sizing: border-box;
+}
+
+body {
+   position: relative;
+   width: 100%;
+   min-height: 100vh;
+   background: linear-gradient(90deg, var(--cor01), var(--cor02));
+   font-family: Arial, Helvetica, sans-serif;
+}
+header {
+   padding-top: 5vh;
+   text-align: center;
+   display: flex;
+   justify-content: center;
+   color: white;
+   align-items: center;
+}
+header > h1 {
+   font-size: 2.5rem;
+}
+
+main {
+   width: 30%;
+   min-width: 310px;
+   /* max-width: ; */
+   height: 50%;
+   /* max-height: ; */
+   padding: 10px;
+   border: 1px solid white;
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%,-50%);
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   align-items: center;
+   gap: 1rem;
+}
+main > .add-tarefa {
+   width: 100%;
+   height: 20%;
+   padding: 1%;
+   text-align: center;
+}
+main > .add-tarefa > input {
+   width: 50%;
+   border-radius: .5rem;
+   border: none;
+   padding: 5px 10px;
+}
+main > .add-tarefa > button {
+   padding: 5px 10px;
+   border-radius: .5rem;
+   border: 2px solid var(--cor02);
+   color: white;
+   font-size: 1rem;
+   background-color: transparent;
+   cursor: pointer;
+   transition: .3s;
+}
+main > .add-tarefa > button:hover {
+   background-color: var(--cor02);
+}
+
+main > .tarefas {
+   width: 100%;
+   margin: auto;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: center;
+   gap: 10px;
+   overflow: auto;
+}
+main > .tarefas > .tarefa {
+   width: 90%;
+   padding: 10px;
+   background-color: white;
+   color: rgb(16, 16, 16);
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+main > .tarefas > .tarefa > p {
+   width: 80%;
+   overflow-x: auto;
+}
+main > .tarefas > .tarefa > .icons {
+   width: 15%;
+   margin-left: 1rem;
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+   gap: 15px;
+   
+}
+main > .tarefas > .tarefa > .icons > i.fa-check {
+   color: #10fb10;
+   cursor: pointer;
+   /* transform: scale(110%); */
+   transition: .3s;
+}
+main > .tarefas > .tarefa > .icons > i.fa-trash {
+   color: #ff3b3b;
+   cursor: pointer;
+   /* transform: scale(110%); */
+   transition: .3s;
+}
+main > .tarefas > .tarefa > .icons > i.fa-check:hover {
+   transform: scale(110%);
+}
+main > .tarefas > .tarefa > .icons > i.fa-trash:hover {
+   transform: scale(110%);
+}
+
+
+/* Manipulação em JS */
+main > .tarefas > .tarefa.checked {
+   background-color: rgb(196, 196, 196);
+}
+main > .tarefas > .tarefa.checked p {
+   text-decoration: line-through;
+   text-decoration-color: rgb(77, 73, 73);
+   text-decoration-style: solid;
+}
+
+footer {
+   position: absolute;
+   bottom: 2vh;
+   left: 50%;
+   transform: translate(-50%,-50%);
+   text-align: center;
+   display: flex;
+   justify-content: center;
+   color: white;
+   align-items: center;
+}
+footer > p {
+   font-size: 1.1rem;
 }
