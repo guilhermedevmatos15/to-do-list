@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+:root {
+   --cor01: #ed1b1b;
+   --cor02: #ed1b1b;
+
+   --font-padrao: 'Bebas Neue', cursive;
+}
+
+* {
+   margin: 0px;
+   padding: 0px;
+   box-sizing: border-box;
+}
