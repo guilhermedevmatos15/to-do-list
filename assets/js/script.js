@@ -11,41 +11,41 @@ function trashed(e) {
    const tarefas = tarefa.parentElement;
    tarefas.removeChild(tarefa);
 }
+function criarTarefa(name) {
+   const tarefas = document.querySelector('div.tarefas');
+   const tarefa = document.createElement('div');
+   tarefa.classList.add('tarefa');
+   
+   const p = document.createElement('p');
+   p.innerHTML = name;
+   
+   const divIcons = document.createElement('div');
+   divIcons.classList.add('icons');
+   
+   const iconCheck = document.createElement('i');
+   const iconTrash = document.createElement('i');
+   iconCheck.classList.add('fa-solid');
+   iconCheck.classList.add('fa-check');
+   iconCheck.addEventListener('click', checked);
+   iconTrash.classList.add('fa-solid');
+   iconTrash.classList.add('fa-trash');
+   iconTrash.addEventListener('click', trashed);
+
+   divIcons.appendChild(iconCheck);
+   divIcons.appendChild(iconTrash);
+   tarefa.appendChild(p);
+   tarefa.appendChild(divIcons);
+   tarefas.appendChild(tarefa);
+}
+
 
 button.addEventListener('click', ()=>{
    const nomeDaTarefa = input.value;
-   const tarefas = document.querySelector('div.tarefas');
-
    if (nomeDaTarefa === '' || nomeDaTarefa.length === 0) {
       input.classList.add('error');
    } else {
       input.classList.remove('error');
-      // Criação dos elementos
-      const tarefa = document.createElement('div');
-      const p = document.createElement('p');
-      const divIcons = document.createElement('div');
-      const iconCheck = document.createElement('i');
-      const iconTrash = document.createElement('i');
-
-      tarefa.classList.add('tarefa');
-
-      p.innerHTML = nomeDaTarefa;
-
-      divIcons.classList.add('icons');
-
-      iconCheck.classList.add('fa-solid');
-      iconCheck.classList.add('fa-check');
-      iconTrash.classList.add('fa-solid');
-      iconTrash.classList.add('fa-trash');
-
-      iconCheck.addEventListener('click', checked);
-      iconTrash.addEventListener('click', trashed);
-
-      divIcons.appendChild(iconCheck);
-      divIcons.appendChild(iconTrash);
-      tarefa.appendChild(p);
-      tarefa.appendChild(divIcons);
-      tarefas.appendChild(tarefa);
+      criarTarefa(nomeDaTarefa);
 
       // Clear and select input
       input.value='';
